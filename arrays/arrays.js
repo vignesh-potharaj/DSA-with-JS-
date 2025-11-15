@@ -48,3 +48,29 @@ function findMin(arr) {
 
 console.log(findMin([5, 2, 9, 1]));
 
+// Problem 3: Reverse an Array (Without reverse())
+
+// Requirements:
+// Modify the array in-place
+// No extra array allowed
+// Use two-pointer technique
+// Swap elements until they meet in the middle
+
+function reverseArray(arr) {
+    if (arr.length === 0) {
+        return null;
+    }
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while(left < right) {
+        let temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+    return arr;
+}
+
+console.log(reverseArray([1, 2, 3, 4]));
