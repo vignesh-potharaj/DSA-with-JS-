@@ -1,3 +1,5 @@
+const { use } = require("react");
+
 console.log("Arrays File Loaded.");
 
 // Problem 1: Find the Maximum Element
@@ -74,3 +76,89 @@ function reverseArray(arr) {
 }
 
 console.log(reverseArray([1, 2, 3, 4]));
+
+
+// Problem: Linear Search (Basic Version)
+
+// Goal:
+// Write a function that returns the index of a target number in an array.
+
+function search(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i;
+        }
+    }
+
+    return ('not found');
+}
+
+console.log(search([2, 5, 9, 4], 9))
+console.log(search([2, 5, 9, 4], 100))
+
+// You must rewrite the search function without using ===.
+
+function search1(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+
+    return ('not found');
+}
+
+console.log(search1([2, 5, 9, 4], 9))
+console.log(search1([2, 5, 9, 4], 100))
+
+// No direct equality operators at all
+// You must detect the match without equality operators.
+// You're allowed:
+// <
+// >
+// <=
+// >=
+// You're NOT allowed:
+// ===
+// ==
+// !=
+// !==
+
+function search2(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] <= target && arr[i] >= target) {
+            return i;
+        }
+    }
+
+    return ('not found');
+}
+
+console.log(search2([2, 5, 9, 4], 9))
+console.log(search2([2, 5, 9, 4], 100))
+
+
+// You cannot use:
+// ===
+// ==
+// !==
+// !=
+// <=
+// >=
+
+// can use:
+// <
+// >
+
+function search3(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] <= target && arr[i] >= target) {
+            return i;
+        }
+    }
+
+    return ('not found');
+}
+
+console.log(search2([2, 5, 9, 4], 9))
+console.log(search2([2, 5, 9, 4], 100))
