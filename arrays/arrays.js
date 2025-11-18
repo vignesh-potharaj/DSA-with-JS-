@@ -1,5 +1,3 @@
-const { use } = require("react");
-
 console.log("Arrays File Loaded.");
 
 // Problem 1: Find the Maximum Element
@@ -137,7 +135,6 @@ function search2(arr, target) {
 console.log(search2([2, 5, 9, 4], 9))
 console.log(search2([2, 5, 9, 4], 100))
 
-
 // You cannot use:
 // ===
 // ==
@@ -152,7 +149,7 @@ console.log(search2([2, 5, 9, 4], 100))
 
 function search3(arr, target) {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] <= target && arr[i] >= target) {
+        if (!(arr[i] < target) && !(arr[i] > target) ){
             return i;
         }
     }
@@ -160,5 +157,75 @@ function search3(arr, target) {
     return ('not found');
 }
 
-console.log(search2([2, 5, 9, 4], 9))
-console.log(search2([2, 5, 9, 4], 100))
+console.log(search3([2, 5, 9, 4], 9))
+console.log(search3([2, 5, 9, 4], 100))
+
+// You’re allowed:
+// +
+// -
+// /
+// *
+// ! (logical NOT)
+// &&
+// ||
+// if, return, loops, etc.
+// You are NOT allowed:
+// ANY comparison operator
+
+function search4(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        let diff = (arr[i] - target)
+        if (!diff){
+            return i;
+        }
+    }
+
+    return ('not found');
+}
+
+console.log(search4([2, 5, 9, 4], 9))
+console.log(search4([2, 5, 9, 4], 100))
+
+
+
+// You cannot use for, while, do, or any loop-like iteration (including for...of, for...in).
+// You can use:
+// recursion (function calling itself)
+// array indexing (arr[i])
+// early returns
+// === / other comparisons (allowed)
+// helper parameters (index counters)
+// slice / concat / array methods if you want (but they’re unnecessary)
+function search5(arr, target, i = 0) {
+    if (i === arr.length) return 'Not Found'
+    if(arr[i] === target) return i;
+    return search5(arr,target, i + 1)
+}
+
+console.log(search5([2, 5, 9, 4], 9))
+console.log(search5([2, 5, 9, 4], 100))
+
+// Restriction #6 — No index parameter allowed
+// You CANNOT use:
+// i
+// helper parameter
+// extra argument
+// default argument
+// inner helper function with i
+// slice
+// splice
+// loops of any kind
+// You must write search using pure recursion on array structure.
+// ❗Only allowed:
+// arr.length
+// arr[0]
+// arr[1], arr[2], etc. ONLY via recursion
+// comparisons
+// slicing is NOT allowed (too easy)
+// no loops
+
+function search5(arr, target){
+    if (arr[n] === target) return n;
+    
+}
+
