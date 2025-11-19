@@ -225,7 +225,8 @@ console.log(search5([2, 5, 9, 4], 100))
 // no loops
 
 function search5(arr, target){
-    if (arr[n] === target) return n;
-    
+    if (arr[0] === target) return 0;
+    return 
+
 }
 
