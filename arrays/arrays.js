@@ -229,4 +229,3 @@ function search5(arr, target){
     return 
 
 }
-

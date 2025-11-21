@@ -78,12 +78,22 @@ console.log(isSorted2([]))
 // Rewrite isSorted using recursion instead of loops
 // And still NO comparison operators (> < >= <= == ===)
 
-function isSorted3(arr) {
-    
+function isSorted3(arr, i= 0) {
+    if(!(i + 1 in arr))
+        return true;
+    let diff = (arr[i] - arr[i + 1]);
+    if (!diff) {
+        return isSorted3(arr, i + 1);
+    }
+    let sign = (diff/Math.abs(diff));
+    if (sign + 1) return false;
+    return isSorted3(arr, i + 1);
 }
 // time complexity -o(n)
-// space complexity -o(1)
+// space complexity -o(n)
 console.log(isSorted3([1,2,3,4]))
 console.log(isSorted3([1,3,2,4]))
 console.log(isSorted3([5]))
 console.log(isSorted3([]))
+
+
