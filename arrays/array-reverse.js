@@ -16,7 +16,20 @@ console.log(reverseArray([]) )
 // Constraint1:Reverse In-Place (two pointers)
 // No new array allowed.
 function reverseArray1(arr) {
-    
+    if(arr.length === 0) return null;
+
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        let temp = arr[left]
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left ++;
+        right --;
+    }
+    return arr;
+
 }
 
 // timecomplexity -> o(n)
