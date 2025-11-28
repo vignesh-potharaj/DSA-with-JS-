@@ -160,12 +160,11 @@ closureFix();
 function createQueue() {
     let queue = [];
     function enqueue(a) {
-        queue.unshift(a);
-        return queue;
+        return queue.push(a);
     }
-    function dequeue(b) {
-        queue.shift(b)
-        return queue;
+    function dequeue() {
+        if (queue.length === 0) return "empty";
+        return queue.shift();
     }
     return {enqueue, dequeue}
 }
