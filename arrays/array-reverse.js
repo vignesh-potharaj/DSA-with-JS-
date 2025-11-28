@@ -33,7 +33,7 @@ function reverseArray1(arr) {
 }
 
 // timecomplexity -> o(n)
-// spacecomplexity -> O(n)
+// spacecomplexity -> O(1)
 console.log(reverseArray1([1,2,3]))
 console.log(reverseArray1(['a','b','c']))
 console.log(reverseArray1([]) )
