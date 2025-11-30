@@ -32,10 +32,36 @@ function reverseArray1(arr) {
 
 }
 
+
+
+
 // timecomplexity -> o(n)
 // spacecomplexity -> O(1)
 console.log(reverseArray1([1,2,3]))
 console.log(reverseArray1(['a','b','c']))
 console.log(reverseArray1([]) )
 
+
+// No temporary variable allowed (swap without temp)
+
+function reverseArray2(arr){
+    if (arr.length === 0) return null;
+    let left = 0;
+    let right = arr.length -1;
+
+    while (left < right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        i++;
+        j--;
+    }
+    return arr;
+}
+
+
+// timecomplexity -> o(n)
+// spacecomplexity -> O(1)
+
+console.log(reverseArray1([1,2,3]))
+console.log(reverseArray1(['a','b','c']))
+console.log(reverseArray1([]) )
 
