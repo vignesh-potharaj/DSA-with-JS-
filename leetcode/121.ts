@@ -25,4 +25,24 @@ function maxProfit(prices: number[]): number {
 
 // lets make it optimal
 
+function maxProfit(prices: number[]): number {
+    if (prices.length < 2) return 0;
+    let maxProfit: number = 0;
+    let minPrice: number = prices[0];
 
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i] < minPrice) {
+            minPrice =  prices[i];
+        }
+        let profit: number = prices[i] - minPrice;
+
+        if (profit > maxProfit) {
+            maxProfit = profit;
+        }
+    }
+    return maxProfit;
+};
+
+// O(1) space
+// O(n) time
+// now we have the perfect code with optimal space and time
