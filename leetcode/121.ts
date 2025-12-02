@@ -25,9 +25,9 @@ function maxProfit(prices: number[]): number {
 
 // lets make it optimal
 
-function maxProfit(prices: number[]): number {
+function maxProfit1(prices: number[]): number {
     if (prices.length < 2) return 0;
-    let maxProfit: number = 0;
+    let maxProfit1: number = 0;
     let minPrice: number = prices[0];
 
     for (let i = 0; i < prices.length; i++) {
@@ -36,11 +36,11 @@ function maxProfit(prices: number[]): number {
         }
         let profit: number = prices[i] - minPrice;
 
-        if (profit > maxProfit) {
-            maxProfit = profit;
+        if (profit > maxProfit1) {
+            maxProfit1 = profit;
         }
     }
-    return maxProfit;
+    return maxProfit1;
 };
 
 // O(1) space
