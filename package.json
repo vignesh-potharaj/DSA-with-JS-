@@ -1,0 +1,16 @@
+{
+  "name": "dsa-with-js-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "ts-node ./arrays/array-prefix.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ./arrays/array-prefix.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
