@@ -58,10 +58,10 @@ console.log(sum([1,1,1,1], 2, 3));
 // Task: implement the naive O(n²) solution that returns the indices 
 // of two numbers that add to target.
 
-function twoSum(arr: number[], target: number) {
+function twoSum(arr: number[], target: number): [number, number] | null {
     if (arr.length <= 1) return null;
     for (let i = 0; i < arr.length;i++) {
-        for (let j = 1; j < arr.length;j++) {
+        for (let j = i + 1; j < arr.length;j++) {
             if (arr[i] + arr[j] === target) {
                 return [i,j]
                 break;
