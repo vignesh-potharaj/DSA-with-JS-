@@ -1,6 +1,5 @@
 // Write the prefix sum function:
 
-import { PerformanceNodeTiming } from "perf_hooks";
 
 function prefixSum(arr: number[]) {
     if(arr.length === 0) return[];
@@ -53,3 +52,26 @@ console.log(sum(arr,1, 3));
 console.log(sum([2,5,3,1], 0, 2)); 
 console.log(sum([2,5,3,1], 1, 3));
 console.log(sum([1,1,1,1], 2, 3));
+
+
+
+// Task: implement the naive O(n²) solution that returns the indices 
+// of two numbers that add to target.
+
+function twoSum(arr: number[], target: number) {
+    if (arr.length <= 1) return null;
+    for (let i = 0; i < arr.length;i++) {
+        for (let j = 1; j < arr.length;j++) {
+            if (arr[i] + arr[j] === target) {
+                return [i,j]
+                break;
+            }
+        }
+    }
+    return null;
+}
+
+console.log(twoSum([2,7,11,15], 9));    // [0,1]
+console.log(twoSum([3,2,4], 6));        // [1,2]
+console.log(twoSum([3,3], 6));          // [0,1]
+console.log(twoSum([1,2,3], 7));        // null
