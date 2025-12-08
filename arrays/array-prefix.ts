@@ -80,7 +80,7 @@ console.log(twoSum([1,2,3], 7));        // null
 // leetcode #1
 
 
-function twoSum1(arr: number[], target: number): [number, number] | null {
+function twoSum2(arr: number[], target: number): [number, number] | null {
     if (arr.length < 2) return null;
     const map = new Map<number, number>();
 
@@ -96,7 +96,48 @@ function twoSum1(arr: number[], target: number): [number, number] | null {
 
 // time complexity O(n)
 // space complexity O(n)
-console.log(twoSum1([2,7,11,15], 9));    // [0,1]
-console.log(twoSum1([3,2,4], 6));        // [1,2]
-console.log(twoSum1([3,3], 6));          // [0,1]
-console.log(twoSum1([1,2,3], 7));        // null
+console.log(twoSum2([2,7,11,15], 9));    // [0,1]
+console.log(twoSum2([3,2,4], 6));        // [1,2]
+console.log(twoSum2([3,3], 6));          // [0,1]
+console.log(twoSum2([1,2,3], 7));        // null
+
+
+
+function twoSum3(arr: number[], target: number): number[][] {
+  const map = new Map<number, number[]>(); // value -> list of indices seen so far
+  const result: number[][] = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const x = arr[i];
+    const complement = target - x;
+
+    // if we have previous indices for the complement, emit all pairs [prevIdx, i]
+    if (map.has(complement)) {
+      const indices = map.get(complement)!;
+      for (const prevIdx of indices) {
+        result.push([prevIdx, i]);
+      }
+    }
+
+    // record current index for value x
+    if (map.has(x)) {
+      map.get(x)!.push(i);
+    } else {
+      map.set(x, [i]);
+    }
+  }
+
+  return result;
+}
+console.log(twoSum3([1,5,5,1], 6));
+console.log(twoSum3([1,5,5,1], 6));
+// [[0,1],[0,2],[1,3],[2,3]]
+
+console.log(twoSum3([2,2,2], 4));
+// [[0,1],[0,2],[1,2]]
+
+console.log(twoSum3([1,2,3], 7));
+// []
+
+console.log(twoSum3([], 5));
+// []
