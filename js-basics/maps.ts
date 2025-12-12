@@ -15,3 +15,19 @@ function freqMap(arr: number[]): Map<number, number> {
 }
 
 console.log(freqMap(nums));
+
+// Problem 2: Find the first element that repeats
+
+function repeats(arr: number[]){
+    const map = new Map();
+    for(let i = 0; i < arr.length; i++) {
+        if(map.has(arr[i])) {
+            return arr[i];
+        } else {
+        map.set(arr[i], true)
+        }
+    }
+    return 'no repeating elements'
+}
+
+console.log(repeats([5, 1, 4, 8, 1, 4]));  // Output: 1
