@@ -31,3 +31,23 @@ function repeats(arr: number[]){
 }
 
 console.log(repeats([5, 1, 4, 8, 1, 4]));  // Output: 1
+
+// Problem 3: Check if two arrays have any element in common
+function twoCommon(arr1: number[], arr2: number[]): boolean {
+    const map = new Map();
+    for(let num of arr1) {
+        map.set(num, true);
+    }
+
+    for(let num of arr2) {
+        if(map.has(num)) {
+            return true
+        }
+    }
+    return false;
+}
+let A = [1, 7, 9]
+let B = [5, 7, 10]
+console.log(twoCommon(A, B));  
+
+

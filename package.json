@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p .",
-    "start": "ts-node ./arrays/array-prefix.ts",
+    "start": "ts-node ./js-basics/maps.ts",
     "dev": "ts-node-dev --respawn --transpile-only ./arrays/array-prefix.ts"
   },
   "devDependencies": {
