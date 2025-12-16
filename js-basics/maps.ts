@@ -121,6 +121,19 @@ console.log(mostFreq([1, 3, 3, 2, 1, 3]));
 // Input: "vignesh" → {v:1,i:1,g:1,n:1,e:1,s:1,h:1}
 // Set cannot hold counts.
 
+function charFreq(str: string) {
+    const map = new Map<string, number>()
+    for(let char of str) {
+        map.set(char, (map.get(char) || 0) + 1);
+    }
+    return map;
+}
+
+console.log(charFreq('vignesh'));
+console.log(charFreq('mukhesh'));
+console.log(charFreq('meghana'));
+console.log(charFreq('luffy'));
+
 // 7️⃣ Group Anagrams
 
 // Input:
