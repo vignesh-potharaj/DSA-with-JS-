@@ -69,3 +69,81 @@ function firstUnq(arr: number[]): number | null {
 
 
 console.log(firstUnq([4, 5, 1, 2, 0, 4, 1]));
+
+
+
+// 3️⃣ Find the Most Frequent Element
+
+// Input: [1, 3, 3, 2, 1, 3]
+// Output: 3
+// Requires:
+// value → count
+// Map only.
+
+function mostFreq(arr: number[]): number | null {
+    const map = new Map();
+    for(let num of arr) {
+        map.set(num, (map.get(num) || 0) + 1);
+    }
+    let maxCount: number = 0;
+    let mostFrek: number | null = null;
+    for (let [num, count] of map.entries()) {
+        if(count > maxCount) {
+            maxCount = count;
+            mostFrek = num;
+        }
+    }
+    return mostFrek;
+}
+
+
+console.log(mostFreq([1, 3, 3, 2, 1, 3]));
+
+
+// 4️⃣ Two Sum (classic)
+
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Requires mapping:
+// value → index
+// Set is useless here.
+
+// 5️⃣ Anagram Check
+
+// Input: "listen" "silent"
+// Output: true
+// Requires:
+// char → frequency
+// Map job.
+
+// 6️⃣ Character Frequency in String
+
+// Input: "vignesh" → {v:1,i:1,g:1,n:1,e:1,s:1,h:1}
+// Set cannot hold counts.
+
+// 7️⃣ Group Anagrams
+
+// Input:
+// ["eat","tea","ate","tan","nat","bat"]
+// Output groups based on sorted keys
+// Requires Map of:
+// sortedWord → listOfWords
+
+// Set cannot do this.
+
+// 8️⃣ Subarray Sum Equals K
+// This is where Maps become REAL DSA tools.
+// Input: [1,2,3], k = 3
+// Output: 2 subarrays
+// Uses prefix sum map:
+// prefixSum → count
+// Absolute Map problem.
+
+// 9️⃣ Longest Substring Without epeating Characters
+// Uses Map to track last index of character:
+// char → index
+// This is an interview must-do.
+
+// 🔟 Count Distinct Elements in Every Window of Size K
+// Sliding window + Map counts.
+// Set cannot do dynamic decrement/increment.
