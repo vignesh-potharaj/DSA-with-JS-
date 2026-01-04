@@ -81,7 +81,7 @@ console.log(firstUnq([4, 5, 1, 2, 0, 4, 1]));
 // Map only.
 
 function mostFreq(arr: number[]): number | null {
-    const map = new Map();
+    const map = new Map<number, number>();
     for(let num of arr) {
         map.set(num, (map.get(num) || 0) + 1);
     }
@@ -115,6 +115,26 @@ console.log(mostFreq([1, 3, 3, 2, 1, 3]));
 // Requires:
 // char → frequency
 // Map job.
+
+function anagramCheck(str1: string, str2: string){
+    if(str1.length !== str2.length) return false;
+    const map1 = new Map<string, number>();
+    const map2 = new Map<string, number>();
+    for(let char of str1) {
+        map1.set(char, (map1.get(char) || 0) + 1);
+    }
+    for(let char of str2) {
+        map2.set(char,(map2.get(char) || 0) +1);
+    }
+    for(let [char, count] of map1) {
+        if(map2.get(char) !== count) {
+            return false;
+        }
+    }
+    return 'is anagram';
+}
+
+console.log(anagramCheck('listen','silent'));
 
 // 6️⃣ Character Frequency in String
 
@@ -152,7 +172,7 @@ console.log(charFreq('luffy'));
 // prefixSum → count
 // Absolute Map problem.
 
-// 9️⃣ Longest Substring Without epeating Characters
+// 9️⃣ Longest Substring Without repeating Characters
 // Uses Map to track last index of character:
 // char → index
 // This is an interview must-do.
