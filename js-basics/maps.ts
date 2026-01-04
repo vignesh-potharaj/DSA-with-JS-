@@ -108,6 +108,19 @@ console.log(mostFreq([1, 3, 3, 2, 1, 3]));
 // value → index
 // Set is useless here.
 
+function twoSum(arr: number[], target: number): number[] | null {
+    if(arr.length <= 1) return null;
+    const map = new Map<number, number>();
+    for(let i= 0; i < arr.length; i++) {
+        const complement: number = target - arr[i];
+        if(map.has(complement)) {
+            return [map.get(complement)!,i];
+        }
+        map.set(arr[i], i);
+    }
+    return null;
+}
+
 // 5️⃣ Anagram Check
 
 // Input: "listen" "silent"
@@ -133,7 +146,8 @@ function anagramCheck(str1: string, str2: string){
     }
     return 'is anagram';
 }
-
+// time complexity O(N)
+// space complexity O(N) 
 console.log(anagramCheck('listen','silent'));
 
 // 6️⃣ Character Frequency in String
