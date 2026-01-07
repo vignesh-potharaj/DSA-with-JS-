@@ -175,9 +175,23 @@ console.log(charFreq('luffy'));
 // Output groups based on sorted keys
 // Requires Map of:
 // sortedWord → listOfWords
-
 // Set cannot do this.
 
+function groupAnagrams(arr: string[]) {
+    if( arr.length <= 1) return arr;
+    const map = new Map<string, string[]>();
+    for (let word of arr) {
+        const key = word.split('').sort().join('');
+        if(map.has(key)) {
+            map.get(key)!.push(word);
+        } else {
+            map.set(key,[word]);
+        }
+    }
+    return [map]
+}
+
+console.log(groupAnagrams(["eat","tea","ate","tan","nat","bat"]))
 // 8️⃣ Subarray Sum Equals K
 // This is where Maps become REAL DSA tools.
 // Input: [1,2,3], k = 3
