@@ -12,3 +12,10 @@ function distributeCandies(candyType: number[]): number {
     const mapSize = map.size;
     return Math.min(mapSize,maxEat);
 }
+
+function distributeCandies2(candyType: number[]): number {
+    const mySet = new Set(candyType);
+    if(mySet.size >= candyType.length/2) {
+        return candyType.length/2
+    } else {return mySet.size}
+}
