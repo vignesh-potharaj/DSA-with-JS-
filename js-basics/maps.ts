@@ -1,3 +1,5 @@
+import { count } from "console";
+
 // Problem 1: Count frequency of each element
 const nums: number[] = [1,1,2,3,3,3];
 
@@ -199,6 +201,21 @@ console.log(groupAnagrams(["eat","tea","ate","tan","nat","bat"]))
 // Uses prefix sum map:
 // prefixSum → count
 // Absolute Map problem.
+
+function subArray(arr: number[], k:number) {
+    if(arr.length <= 1) return null;
+    const map = new Map<string, number>();
+    for(let i = 0; arr.length < 1; i++) {
+        for(let j = 1; j < arr.length - 1; j++ ) {
+            if((arr[i] + arr[j]) === k) {
+                map.set('count',(map.get('count') || 0 + 1));
+            } 
+        }
+    }
+    return map.get('count');
+}
+
+console.log(subArray([1,2,3],3));
 
 // 9️⃣ Longest Substring Without repeating Characters
 // Uses Map to track last index of character:
